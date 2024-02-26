@@ -1,0 +1,89 @@
+<hr>
+<h1>
+    our shop name is : <u> {{ shopName }} </u>
+</h1>
+<hr>
+
+<!-- <h3>
+    You Select a 
+    <div [ngSwitch]="perfumeSelected">
+        <u *ngSwitchCase="'classic'"> one Classic old </u>
+        <u *ngSwitchCase="'modern'"> one Modern </u>
+        <u *ngSwitchCase="'mix'"> one Mix </u>
+        <u *ngSwitchDefault> Other type of </u>
+    </div>
+    Perfume
+</h3> -->
+
+<h3>
+    You Select a
+    @switch (perfumeSelected) {
+        @case ('classic') {
+            <u>one Classic old</u>
+        }
+        @case ('modern') {
+            <u>one modern</u>
+        }
+        @case ('mix') {
+            <u>one Mix</u>
+        }
+        @default {
+            <u>one other type</u>
+        }
+    }
+    Perfume
+</h3>
+
+
+<hr>
+
+<h3>
+    product name : <u>{{ products.productName }}</u> <br>
+    price : <u>{{ products.price }}</u> <br>
+    quantity : <u>{{ products.quantity }}</u> <br>
+    shipping available :
+    <!-- <u>{{ products.shipping }}</u> -->
+    <!-- <u *ngIf="products.shipping === true">
+        shipping is available 
+    </u>
+    <u *ngIf="products.shipping !== true">
+        No shipping
+    </u> -->
+    @if (products.shipping === true) {
+    <u>shipping is available</u>
+    }
+    @else {
+    <u>No shipping</u>
+    }
+</h3>
+
+<hr>
+
+<h3>Perfume Categories :</h3>
+<!-- <h4>
+    {{ categories[0] }}
+</h4>
+<h4>
+    {{ categories[1] }}
+</h4>
+<h4>
+    {{ categories[2] }}
+</h4> -->
+
+<!-- <h4 *ngFor="let category of categories; let i = index; trackBy: fx"> 
+    {{ i + 1 }} - {{ category }}
+</h4> -->
+<!-- <h4 *ngFor="let category of categories"> 
+    {{ category }}
+</h4> -->
+
+@for (category of categories1; track $index) {
+<h3>
+    {{ $index + 1 }} - {{ category }}
+</h3>
+}
+@empty {
+<h3>
+    No category recorded
+</h3>
+}

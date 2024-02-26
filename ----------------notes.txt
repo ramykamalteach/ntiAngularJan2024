@@ -1,0 +1,43 @@
+create project:
+    - > ng new projectName
+
+run project :
+    - > ng serve --o                     -- o    open browser
+
+vs code -> file -> preferences -> settings -> search for " default terminal " -> command prompt
+
+new component:
+    - > ng generate component compnent_name
+    - > ng g c compnent_name
+    right click on components folder -> open in integerted terminal
+
+
+- every css file (in any component) effects his component ONLY
+- styles.css, <style> in index.html : ==> effects all the project
+
+
+
+data binding :
+
+    - interpolation :
+        - .ts : variable
+        - .html {{ variable_name }}
+
+
+
+Directives : 
+    - *ngFor               import { CommonModule } from '@angular/common';
+    - @for   @empty         build-in Angular template
+
+    - *ngIf
+    - @if @else
+    - [ngSwitch]
+    - @switch
+
+
+https://freefrontend.com/bootstrap-product-cards/
+
+https://getbootstrap.com/docs/5.3/getting-started/download/
+
+https://cdnjs.com/libraries/font-awesome
+
