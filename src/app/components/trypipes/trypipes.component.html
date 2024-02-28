@@ -1,0 +1,30 @@
+<p>trypipes works!</p>
+
+
+<h1>{{ 'ali samy elsaid' | capFirst }}</h1>
+
+<hr><br>
+
+<h1>{{ 'ali samy elsaid' | slice:2:5 }}</h1>
+<h1>{{ 'ali samy elsaid' | titlecase }}</h1>
+<h1>{{ 'ali samy elsaid' | lowercase }}</h1>
+<h1>{{ 'ali samy elsaid' | uppercase }}</h1>
+
+<hr>
+
+<h1>{{ 0 | date : 'longDate' }}</h1>
+<h1>{{ today | date : 'longTime' }}</h1>
+<h1>{{ today | date : 'shortDate' }}</h1>
+<h1>{{ today | date : 'longDate' }}</h1>
+
+<hr>
+<h1>{{ 9875.12345 | number: '1.1-4'}}</h1>
+
+<h1>{{ 0.12345 | percent: '1.1-4'}}</h1>
+<h1>{{ 9875.12345 | number: '1.1-4'}}</h1>
+
+<hr>
+
+<h1>{{ 5.12345 | currency:'EUR' }}</h1>
+
+<h1>{{ 5.12345 | currency:'جنيه مصرى' }}</h1>

@@ -1,0 +1,60 @@
+<h1>To do List App </h1>
+
+<div class="container">
+    <div class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-6">
+            <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-text">Task Title</div>
+                <input [(ngModel)]="task.title" type="text" class="form-control" id="inlineFormInputGroupUsername"
+                    placeholder="task title">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <label class="visually-hidden" for="inlineFormSelectPref">Category</label>
+            <select [(ngModel)]="task.category" class="form-select" id="inlineFormSelectPref">
+                <option value="Work">Work</option>
+                <option value="Family">Family</option>
+                <option value="Hobbies">Hobbies</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <label class="visually-hidden" for="inlineFormSelectPref">Degree</label>
+            <select [(ngModel)]="task.degree" class="form-select" id="inlineFormSelectPref">
+                <option value="Important">Important</option>
+                <option value="Normal">Normal</option>
+                <option value="Easy">Easy</option>
+            </select>
+        </div>
+
+
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="addNewTask()">Add Task</button>
+        </div>
+    </div>
+
+    <div class="container">
+        @for (oneTask of tasks; track $index) {
+        <h2 class="alert"
+            [ngClass]="{
+                'alert-danger': oneTask.degree == 'Important',
+                'alert-warning': oneTask.degree == 'Normal',
+                'alert-success': oneTask.degree == 'Easy',
+            }">
+            {{$index + 1}} -
+            @if(oneTask.category == 'Work'){
+                <i class="fa fa-tasks" aria-hidden="true"></i>
+            }
+            @if(oneTask.category == 'Family'){
+                <i class="fa fa-trophy" aria-hidden="true"></i>
+            }
+            @if(oneTask.category == 'Hobbies'){
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+            }
+            
+            {{ oneTask.title }}</h2>
+        }
+    </div>
+</div>

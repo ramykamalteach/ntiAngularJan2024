@@ -1,0 +1,20 @@
+
+<!-- <h1 [ngStyle]="{
+        'background-color': withBG ? 'pink' : 'gray',
+        'color' : 'red',
+        'text-align' : textDirection ? 'left' : 'right',
+    }
+    ">
+    Styled Title Here !!!!
+</h1> -->
+
+
+<h1 [ngClass]="{
+        'a1' : withBG,
+    }"
+    class="a2">
+    
+    Styled by Classes
+</h1>
+
+<button (click)="changeBG()">Change status</button>

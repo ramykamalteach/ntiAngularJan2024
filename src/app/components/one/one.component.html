@@ -1,0 +1,28 @@
+
+<input type="text" [(ngModel)] = "inputText" (keyup)="handleInputChange()">
+
+<h2>
+    {{ inputText }}
+</h2>
+
+
+<hr>
+<br>
+
+<h1>hi from one component</h1>
+<h3> {{ msg }}</h3>
+
+<img [src] = "photo" width="400" alt="">
+
+<hr>
+
+<h1>{{ productName }}</h1>
+
+<button (click)="handleButtonClick()">
+    click me to change message
+</button>
+
+
+<!-- <button (click)=" productName = 'Fish'; ">
+    click me to change message
+</button> -->

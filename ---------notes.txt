@@ -1,0 +1,57 @@
+Data Binding : 
+    1- interpolation
+        {{ variable }}
+    
+    2- property binding
+        <  [attribute] = "varaible_name" >
+
+    3- event binding
+        < (eventName) = "js code change data" >
+        < (eventName) = "function_Name()" >
+
+    4- Two ways data binding
+        - import { FormsModule } from '@angular/forms';
+        - imports: [
+                FormsModule
+            ],
+        - public inputText:string = '';
+        - <input type="text" [(ngModel)] = "inputText">
+        - {{ inputText }}
+
+--------------------------------------------
+Conditional Styling CSS
+    ngStyle
+        -  import { CommonModule } from '@angular/common';
+        -  imports: [
+                CommonModule
+            ],
+        -  <h1 [ngStyle]="{
+                'background-color': withBG ? 'pink' : 'gray',
+                'color' : 'red',
+                'text-align' : textDirection ? 'left' : 'right',
+               }
+            ">
+
+    ngClass
+        -  import { CommonModule } from '@angular/common';
+        -  imports: [
+                CommonModule
+            ],
+        -  <h1 [ngClass]="{
+                    'a1' : withBG,
+                }"
+                class="a2"> 
+
+-----------------------------------------------
+
+Pipes : 
+    - format the data in template
+
+    - import { CommonModule } from '@angular/common';
+    - imports: [
+            CommonModule
+        ],
+
+custome pipe :
+    - ng g pipe pipeName
+
