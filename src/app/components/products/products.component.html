@@ -1,0 +1,13 @@
+<p>products works!</p>
+
+@for (item of productsTable; track $index) {
+    {{ item | json }}
+    <br>
+
+}
+
+<button (click)="addProduct()">Add new product</button>
+
+<br>
+
+<button (click)="changePizzaName()">change Pizza Name</button>

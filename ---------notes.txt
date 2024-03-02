@@ -1,0 +1,4 @@
+create service
+    - > ng g s service_name
+
+    
