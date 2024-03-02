@@ -1,0 +1,11 @@
+
+<h2>
+    name : <i class="colored">{{oneProduct.name}}</i>
+    Price : <u class="colored">{{oneProduct.price}}</u>
+    quantity : 
+        <input type="number" min="1" class="colored"
+            [(ngModel)] = "oneProduct.quantity"
+            (change) = "handleQuantityChange()"
+            > 
+    Total : <b  class="colored"> {{oneProduct.total}}</b>
+</h2>

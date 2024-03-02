@@ -1,0 +1,46 @@
+pass data from Parent to child
+    1 - service
+    2 - @Input "property binding" :
+
+
+in parent.ts
+    imports: [
+        ChildComponent
+    ],
+
+    export class ParentComponent {
+        public productName = "pizza";
+    }
+
+parent.html
+    <app-child [pName] = "productName"></app-child>
+
+child.ts
+    @Input() public pName:string = '';
+
+child.html
+    {{ pName }}
+
+-------------------------------------------------------------------------
+
+pass data from child to parent :
+    1 - service
+    2 - @view "not recommended"
+    3 - Event Emitter :
+
+    in child .ts
+
+        @Output() public childEventWhenLiked = new EventEmitter;
+
+        handleLikeClick() {
+            this.childEventWhenLiked.emit("Product is Liked !!!");
+        }
+
+    in child html
+        <button (click) = 'handleLikeClick()'>Like</button>
+
+    in parent ts
+        public productLike = '';
+
+    in parent html
+        <app-child (childEventWhenLiked)="productLike=$event"></app-child>
