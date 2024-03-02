@@ -1,0 +1,33 @@
+- create components
+
+- app-route.ts
+
+    export const routes: Routes = [
+        {path: '', title: 'home page', component: HomepageComponent},
+        {path: 'about', title: 'About us page', component: AboutpageComponent},
+        {path: 'contacts', title: 'Contact us page', component: ContactpageComponent},
+
+        {path: '**', title: 'Page not found', component: PagenotfoundComponent},
+    ];
+
+- app component html
+    <router-outlet></router-outlet>
+
+
+- links :
+    <a class="nav-link" routerLinkActive = "active" aria-current="page" routerLink="/" [routerLinkActiveOptions]="{exact : true}">Home</a>
+
+    routerLink
+        ** instead of "href"
+
+    routerLinkActive = "active"
+        ** for current page link format
+
+    [routerLinkActiveOptions]="{exact : true}"
+        ** format exact link for current page for links has parts of other links
+
+    in header component .css
+        .active {
+            color: red !important;
+            font-weight: bolder;
+        }
