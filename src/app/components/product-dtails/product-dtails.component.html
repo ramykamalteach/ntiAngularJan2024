@@ -1,0 +1,26 @@
+<h2>
+    <a routerLink="/">
+        back to ALL Products
+    </a>
+</h2>
+
+<h1 *ngIf="!productDetails">
+    Loading .......
+</h1>
+
+<h1 *ngIf="productDetails">
+    <div class="details">
+        <div>
+            <b>{{productDetails.title}}</b>
+            <br>
+            <b>$ {{productDetails.price}}</b>
+            <br>
+            <div>
+                {{productDetails.description}}
+            </div>
+        </div>
+        <div>
+            <img [src]="productDetails.image" alt="">
+        </div>
+    </div>
+</h1>

@@ -1,0 +1,16 @@
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.details > div {
+    width: 45%;
+    text-align: center;
+}
+
+img {
+    max-width: 50%;
+    max-height: 66%;
+}

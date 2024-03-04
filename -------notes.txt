@@ -1,0 +1,87 @@
+RXJS : Reactive Extensions for JavaScript -- for async operations
+        ** used for stream ( api )
+    
+    - Observable
+
+
+Signal === Lite Alternavtive for RXJS
+
+---------------------------
+
+use HTTP => HttpClient =======> connect to api (backend)
+
+
+----------------------------------------------------------------------------
+in app.config.ts : import provideHttpClient
+        import { provideHttpClient } from '@angular/common/http';
+
+            export const appConfig: ApplicationConfig = {
+            providers: [provideRouter(routes) , provideHttpClient()]
+        };
+
+-----------------------------------------------------------------------------
+RXJS :
+    - in service
+        - inject : HttpClient
+        - use Observable in async method
+                getAllProducts () : Observable <any> {
+                    return this.http.get("https://fakestoreapi.com/products");
+                }
+    - in component :
+        - inject service
+        - in onInit
+                ngOnInit(): void {
+                    this.productService.getAllProducts().subscribe({
+                        next : (recievedData) => {
+                            this.productsData = recievedData;
+                        },
+
+                        error : (error) => {},
+                        complete : () => {},
+                    });
+                
+                }
+        - recieve data in : 
+                public productsData : any;
+
+-----------------------------------------------------------------------------
+
+Signal :
+        in component :
+            - inject HttpClient
+                    constructor(private http : HttpClient) {}
+
+            - define Signal                    
+                    dataSignal = signal<any>(null);
+
+            - get data from api
+
+                    public productDetails : any;
+
+                    ngOnInit(): void {
+                        this.fetchData();
+                    }
+                    fetchData () {
+                        this.http.get<any>("https://fakestoreapi.com/products/3").subscribe(response => {
+                            this.dataSignal.set(response);    // await
+                            this.productDetails = response;
+                        });
+                    }
+
+
+------------------------------------------------------
+details with link
+    app.routes.ts
+        {path: 'details/:id', title: 'Product Details', component: ProductDtailsComponent},
+
+    all products component :
+        imports: [CommonModule, RouterLink],
+
+        <a class="oneProduct" [routerLink]="['/details' , item.id]">
+
+    in details component :
+        recieve id :
+            - constructor( private route : ActivatedRoute ) {}
+            - ngOnInit(): void {
+                    this.productId = this.route.snapshot.paramMap.get('id');
+                }

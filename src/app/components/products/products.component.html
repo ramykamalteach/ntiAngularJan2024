@@ -1,0 +1,19 @@
+
+<div *ngIf="isLoading" class="loading">
+    <img src="../../../assets/Spinner-2.gif" alt="Loading...">
+</div>
+
+<div *ngIf="!isLoading">
+    <div class="items">
+        @for (item of productsData; track $index) {
+            <a class="oneProduct" [routerLink]="['/details' , item.id]">
+            <!-- <a class="oneProduct"> -->
+                <div><img [src]="item.image" alt=""></div>
+                <div>
+                    <h2>{{item.title}}</h2>
+                    <h3>{{item.price}}</h3>
+                </div>
+            </a>
+        }
+    </div>
+</div>
